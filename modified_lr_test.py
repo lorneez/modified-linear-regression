@@ -30,6 +30,8 @@ def getPrecision(y_true, y_hat):
     else:
         return 0
 
+
+# percent of positives
 def numberRecommended(y_hat):
     total = 0
     recommended = 0
@@ -41,7 +43,7 @@ def numberRecommended(y_hat):
 
 def testMLR():
     for b in range(10, 40):
-        beta = b/10
+        beta = b / 10
         MLR = ModifiedLogisticRegression(learning_rate=0.0001, num_iterations=1000, beta=beta)
         MLR.fit(X_train, y_train)
         predictions = MLR.predict(X_test)
@@ -50,5 +52,6 @@ def testMLR():
         print("Precision:", getPrecision(y_test, predictions))
         print("Number Recommended:", numberRecommended(predictions))
         print("")
+
 
 testMLR()
